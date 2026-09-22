@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Meddy AI - Adcock Ingram Digital Companion</title>
+    <title>Meddy AI - Digital Health Companion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -38,7 +38,6 @@
             padding: 16px;
         }
 
-        /* RESPONSIVE LAYOUT CONTAINER (FOR MOBILE & TABLET/DESKTOP) */
         .workspace-grid {
             width: 100%;
             max-width: 1100px;
@@ -49,25 +48,23 @@
             align-items: flex-start;
         }
 
-        /* MOBILE APP SHELL */
         .app-shell {
             width: 100%;
             max-width: 420px;
             height: 840px;
             max-height: 92vh;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 36px;
             border: 1px solid var(--surface-border);
-            box-shadow: var(--shadow-glow), 0 10px 30px rgba(0,0,0,0.06);
+            box-shadow: var(--shadow-glow);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             position: relative;
         }
 
-        /* ADCOCK INGRAM BRAND HEADER */
         .app-header {
             padding: 14px 18px 10px;
             background: rgba(255, 255, 255, 0.98);
@@ -85,50 +82,38 @@
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             color: white; font-weight: 800; font-size: 16px;
-            transition: all 0.4s ease;
         }
 
-        .brand-title { font-size: 14px; font-weight: 800; color: var(--text-primary); }
-        .brand-subtitle { 
-            font-size: 10px; font-weight: 700; color: var(--brand-theme); 
-            text-transform: uppercase; transition: all 0.4s ease;
-        }
+        .brand-title { font-size: 13.5px; font-weight: 800; color: var(--text-primary); }
+        .brand-subtitle { font-size: 10px; font-weight: 700; color: var(--brand-theme); text-transform: uppercase; }
 
         .ai-pill-tag {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 800;
+            background: #e0f2fe; color: #0369a1; padding: 4px 10px;
+            border-radius: 20px; font-size: 10px; font-weight: 800;
         }
 
-        /* AUDIENCE SEGMENTS (Caregiver / Simple / Child) */
+        /* 2-COLUMN SEGMENT TOGGLE (Caregiver vs Child) */
         .segment-bar {
-            padding: 8px 16px;
-            background: rgba(241, 245, 249, 0.8);
-            display: flex;
-            gap: 6px;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            padding: 8px 16px; background: rgba(241, 245, 249, 0.9);
+            display: flex; gap: 8px; border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
 
         .segment-btn {
-            flex: 1; padding: 7px 4px; border: none; background: transparent;
-            border-radius: 12px; font-size: 11px; font-weight: 700;
+            flex: 1; padding: 9px 6px; border: none; background: transparent;
+            border-radius: 12px; font-size: 12px; font-weight: 800;
             color: var(--text-secondary); cursor: pointer; transition: all 0.2s ease;
         }
 
-        .segment-btn.active { background: #ffffff; color: var(--brand-theme); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .segment-btn.active { background: #ffffff; color: var(--brand-theme); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
         .main-stage {
             flex: 1; padding: 14px 18px; overflow-y: auto;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* TALKING AVATAR ANIMATION */
         .character-viewport { margin: 2px 0 8px; position: relative; }
         .character-svg {
-            width: 85px; height: 85px;
+            width: 75px; height: 75px;
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
             animation: characterFloat 3.5s ease-in-out infinite;
         }
@@ -137,7 +122,6 @@
         .eye-blink { animation: blinkEyes 4s infinite; transform-origin: center; }
         @keyframes blinkEyes { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(0.1); } }
 
-        /* SCROLLABLE FEATURE NAVIGATION */
         .feature-nav-scroll {
             width: 100%; display: flex; gap: 6px; overflow-x: auto;
             padding-bottom: 8px; margin-bottom: 8px; scrollbar-width: none;
@@ -150,38 +134,16 @@
             font-weight: 700; color: var(--text-secondary); cursor: pointer; flex-shrink: 0;
         }
 
-        .feature-nav-btn.active {
-            background: var(--brand-theme); color: white; border-color: var(--brand-theme);
-        }
+        .feature-nav-btn.active { background: var(--brand-theme); color: white; border-color: var(--brand-theme); }
 
-        /* AUDIO TTS BAR */
-        .audio-bar {
-            display: flex; align-items: center; justify-content: space-between;
-            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px;
-            padding: 6px 12px; width: 100%; margin-bottom: 10px;
-        }
-
-        .audio-btn {
-            background: var(--brand-gradient); border: none; color: white;
-            padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; cursor: pointer;
-        }
-
-        .sound-wave { display: flex; align-items: center; gap: 3px; height: 14px; }
-        .wave-bar { width: 3px; height: 100%; background: var(--brand-theme); border-radius: 3px; opacity: 0.3; }
-        .sound-wave.active .wave-bar { opacity: 1; animation: waveAnim 0.8s ease-in-out infinite alternate; }
-        @keyframes waveAnim { 0% { height: 3px; } 100% { height: 14px; } }
-
-        /* SPEECH CARD */
         .speech-card {
             width: 100%; background: var(--surface-glass); border: 1px solid var(--surface-border);
             border-radius: 18px; padding: 12px 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.03);
-            margin-bottom: 10px; text-align: left; transition: all 0.3s ease;
+            margin-bottom: 10px; text-align: left;
         }
 
-        .speech-card.warning-mode { background: #fff5f5; border-color: #fecaca; color: #b91c1c; }
         .speech-text { font-size: 12.5px; line-height: 1.5; color: var(--text-primary); }
 
-        /* INFO & TOOL CARDS */
         .info-card {
             width: 100%; background: #ffffff; border: 1px solid #e2e8f0;
             border-radius: 18px; padding: 12px 14px; margin-bottom: 10px; text-align: left;
@@ -207,20 +169,27 @@
             padding: 8px; border-radius: 8px; text-align: center;
         }
 
+        /* CHILD SECTION VIDEO CONTAINER */
+        .video-container {
+            width: 100%; position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0; overflow: hidden; border-radius: 16px; border: 2px solid #38bdf8;
+            margin-top: 8px; box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        .child-badge {
+            background: #fef08a; color: #854d0e; padding: 5px 10px; border-radius: 20px;
+            font-size: 10.5px; font-weight: 800; text-align: center; margin-bottom: 6px; display: inline-block;
+        }
+
         .disclaimer-banner {
             font-size: 10px; color: #64748b; background: #f1f5f9; border-radius: 10px;
             padding: 6px 10px; margin-top: 4px; text-align: center; border: 1px dashed #cbd5e1;
         }
 
-        .step-nav { display: flex; gap: 10px; width: 100%; margin-bottom: 6px; }
-        .step-btn {
-            flex: 1; padding: 9px; border-radius: 14px; font-size: 11.5px; font-weight: 700;
-            border: none; cursor: pointer; transition: all 0.2s ease;
-        }
-        .btn-prev { background: #f1f5f9; color: var(--text-secondary); }
-        .btn-next { background: var(--brand-gradient); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
-        /* FOOTER CHAT & LANGUAGE SWITCHER */
         .app-footer {
             padding: 10px 14px; background: rgba(255, 255, 255, 0.95);
             border-top: 1px solid rgba(226, 232, 240, 0.8); display: flex; gap: 8px; align-items: center;
@@ -242,70 +211,62 @@
             align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
         }
 
-        /* ADCOCK INGRAM PACKAGING SIMULATOR & REAL QR GENERATOR PANEL */
+        /* PACKAGING & REAL QR GENERATOR PANEL */
         .packaging-simulator {
-            width: 100%;
-            max-width: 420px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+            width: 100%; max-width: 420px; background: #ffffff;
+            border: 1px solid #e2e8f0; border-radius: 24px; padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); display: flex;
+            flex-direction: column; gap: 12px;
         }
 
         .pack-title { font-size: 14px; font-weight: 800; color: #0f172a; }
-        .pack-desc { font-size: 12px; color: #64748b; line-height: 1.4; }
+        .pack-desc { font-size: 11.5px; color: #64748b; line-height: 1.4; }
+
+        .host-url-input {
+            width: 100%; padding: 8px 10px; border-radius: 8px;
+            border: 1px solid #cbd5e1; font-size: 11px; outline: none;
+        }
 
         .qr-display-card {
-            background: #f8fafc;
-            border: 2px dashed #cbd5e1;
-            border-radius: 16px;
-            padding: 16px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            background: #f8fafc; border: 2px dashed #cbd5e1;
+            border-radius: 16px; padding: 14px; text-align: center;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
         }
 
         .qr-image { width: 140px; height: 140px; border-radius: 8px; }
 
         .switch-product-btn {
-            width: 100%; padding: 10px; border-radius: 12px; border: 1px solid #cbd5e1;
-            background: #ffffff; font-size: 12px; font-weight: 700; color: #1e293b;
-            cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: space-between;
+            width: 100%; padding: 9px 12px; border-radius: 12px; border: 1px solid #cbd5e1;
+            background: #ffffff; font-size: 11.5px; font-weight: 700; color: #1e293b;
+            cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: space-between; align-items: center;
         }
-        .switch-product-btn:hover { background: #f1f5f9; }
+
+        .switch-product-btn:hover { border-color: var(--brand-theme); background: #f8fafc; }
     </style>
 </head>
 <body>
 
 <div class="workspace-grid">
-    <!-- 1. MOBILE / TABLET APP SHELL -->
+    <!-- MOBILE / TABLET APP CONTAINER -->
     <div class="app-shell">
         <div class="app-header">
             <div class="brand-pill">
-                <div class="brand-logo" id="brandLogo">M</div>
+                <div class="brand-logo">M</div>
                 <div>
                     <div class="brand-title" id="brandTitle">Panado® Paediatric</div>
-                    <div class="brand-subtitle" id="medTagDisplay">Adcock Ingram Assistant</div>
+                    <div class="brand-subtitle" id="medTagDisplay">Adcock Ingram Companion</div>
                 </div>
             </div>
             <div class="ai-pill-tag">PIL VERIFIED</div>
         </div>
 
-        <!-- AUDIENCE SELECTOR (Caregiver / Simple / Child) -->
+        <!-- 2-TAB SEGMENT TOGGLE -->
         <div class="segment-bar">
-            <button class="segment-btn active" id="segCaregiver" onclick="setSegment('caregiver')">📚 Caregiver</button>
-            <button class="segment-btn" id="segSimple" onclick="setSegment('simple')">🙂 Simple</button>
-            <button class="segment-btn" id="segChild" onclick="setSegment('child')">🧒🏽 Child</button>
+            <button class="segment-btn active" id="segCaregiver" onclick="setSegment('caregiver')">👨‍👩‍👧 Caregiver View</button>
+            <button class="segment-btn" id="segChild" onclick="setSegment('child')">🎈 Child Zone</button>
         </div>
 
         <div class="main-stage">
-            <!-- TALKING AVATAR CHARACTER -->
             <div class="character-viewport">
                 <svg class="character-svg" viewBox="0 0 120 120" fill="none">
                     <path id="pillCap" d="M60 10C37.9 10 20 27.9 20 50V60H100V50C100 27.9 82.1 10 60 10Z" fill="#00BCD4"/>
@@ -321,205 +282,244 @@
                 </svg>
             </div>
 
-            <!-- FEATURE NAVIGATION SCROLLER -->
-            <div class="feature-nav-scroll" id="featureNav">
-                <button class="feature-nav-btn active" onclick="loadFeature(0)">1. What is this?</button>
-                <button class="feature-nav-btn" onclick="loadFeature(1)">2. How to use?</button>
-                <button class="feature-nav-btn" onclick="loadFeature(2)">3. What to know?</button>
-                <button class="feature-nav-btn" onclick="loadFeature(3)">4. Watch out!</button>
-                <button class="feature-nav-btn" onclick="loadFeature(4)">5. Storage</button>
-                <button class="feature-nav-btn" onclick="loadFeature(5)">6. Quiz & Learn</button>
-            </div>
-
-            <!-- AUDIO TTS CONTROLLER -->
-            <div class="audio-bar">
-                <button class="audio-btn" onclick="toggleSpeech()">🔊 Listen to Meddy</button>
-                <div class="sound-wave" id="soundWave">
-                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-                </div>
-            </div>
-
-            <!-- SPEECH & INFO CONTENT CARDS -->
-            <div class="speech-card" id="speechCard">
-                <div class="speech-text" id="speechText"></div>
-            </div>
-
+            <!-- DYNAMIC CONTENT AREA -->
+            <div id="navigationTabs" class="feature-nav-scroll"></div>
+            <div class="speech-card"><div class="speech-text" id="speechText"></div></div>
             <div class="info-card" id="infoCard"></div>
 
             <div class="disclaimer-banner">
-                ℹ️ Meddy complements approved Patient Information Leaflets. For emergency or diagnostic advice, consult a doctor or pharmacist.
-            </div>
-
-            <div class="step-nav" style="margin-top: 8px;">
-                <button class="step-btn btn-prev" id="prevBtn" onclick="prevStep()">Back</button>
-                <button class="step-btn btn-next" id="nextBtn" onclick="nextStep()">Next Topic ➤</button>
+                ℹ️ Meddy complements approved SAHPRA Patient Information Leaflets. For medical concerns, consult a doctor or healthcare professional.
             </div>
         </div>
 
-        <!-- FOOTER CHAT & LANGUAGE SWITCHER -->
-        <div class="app-footer">
+        <div class="app-footer" id="appFooter">
             <select class="lang-select" id="langSelect" onchange="switchLanguage()">
                 <option value="en">🇬🇧 EN</option>
                 <option value="zu">🇿🇦 ZU</option>
                 <option value="st">🇿🇦 ST</option>
             </select>
             <input type="text" class="chat-input" id="chatInput" placeholder="Ask Meddy a question..." onkeypress="handleKey(event)">
-            <button class="send-btn" id="sendBtn" onclick="askMeddy()">➤</button>
+            <button class="send-btn" onclick="askMeddy()">➤</button>
         </div>
     </div>
 
-    <!-- 2. PHYSICAL PACKAGING & QR CODE GENERATOR PANEL -->
+    <!-- PACKAGING & QR CODE GENERATOR PANEL -->
     <div class="packaging-simulator">
         <div class="pack-title">📦 Adcock Ingram Packaging QR Generator</div>
-        <div class="pack-desc">In real life, caregivers scan the QR code printed on the physical packaging with their mobile phone. Test scanning this QR code directly using another phone or tablet!</div>
-        
-        <div class="qr-display-card">
-            <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary);" id="qrLabel">Scannable QR for Panado® Syrup</div>
-            <img class="qr-image" id="qrCodeImg" src="" alt="Adcock Ingram Product QR Code">
-            <div style="font-size: 10px; color: #94a3b8;" id="qrTargetUrl">Target URL: ?product=PANADO</div>
+        <div class="pack-desc">
+            Enter your deployed GitHub URL below to generate phone-scannable QR codes for your live prototype presentation:
         </div>
 
-        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Simulate Scanning Another Packaging QR:</div>
+        <input type="text" class="host-url-input" id="customHostInput" placeholder="https://yourname.github.io/meddy/" oninput="updateQrTargetUrl()">
+        
+        <div class="qr-display-card">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary);" id="qrLabel">Scannable QR Code</div>
+            <img class="qr-image" id="qrCodeImg" src="" alt="Adcock Ingram Product QR Code">
+            <div style="font-size: 10px; color: #94a3b8; word-break: break-all;" id="qrTargetUrl">Target URL: --</div>
+        </div>
+
+        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Switch Product View & QR:</div>
 
         <button class="switch-product-btn" onclick="switchProduct('PANADO')">
-            <span>🍓 <strong>Panado® Paediatric Syrup</strong><br><small style="color:#64748b;">Adcock Ingram Paracetamol</small></span>
-            <span style="color:#008a9a;">Load URL ›</span>
+            <span>🍓 <strong>Panado® Paediatric Syrup</strong><br><small style="color:#64748b;">Analgesic & Antipyretic (Paracetamol)</small></span>
+            <span style="color:#008a9a;">Select ›</span>
         </button>
 
-        <button class="switch-product-btn" onclick="switchProduct('LINCTAGON')">
-            <span>🌿 <strong>Linctagon® C Syrup</strong><br><small style="color:#64748b;">Adcock Ingram Pelargonium</small></span>
-            <span style="color:#10b981;">Load URL ›</span>
+        <button class="switch-product-btn" onclick="switchProduct('ALLERGEX')">
+            <span>🌼 <strong>Allergex® Tablets (4 mg)</strong><br><small style="color:#64748b;">Antihistamine (Chlorphenamine)</small></span>
+            <span style="color:#d97706;">Select ›</span>
+        </button>
+
+        <button class="switch-product-btn" onclick="switchProduct('NEBRAFEN')">
+            <span>💨 <strong>Adco Nebrafen Inhalant</strong><br><small style="color:#64748b;">Bronchodilator Nebuliser Solution</small></span>
+            <span style="color:#2563eb;">Select ›</span>
         </button>
     </div>
 </div>
 
 <script>
-    // --- ADCOCK INGRAM PIL KNOWLEDGE BASE ---
+    // CATALOGUE DEDICATED EXCLUSIVELY TO ADCOCK INGRAM SAHPRA PIL DATA
     const productCatalogue = {
         PANADO: {
-            brandName: "Panado® Paediatric",
-            subtitle: "Adcock Ingram® AI Health Companion",
+            brandName: "Panado® Paediatric Syrup",
+            subtitle: "Adcock Ingram - Paracetamol 120mg/5ml",
             themeColor: "#00bcd4",
             themeGradient: "linear-gradient(135deg, #00d2ff 0%, #008a9a 100%)",
             capColor: "#00BCD4",
             bandColor: "#008A9A",
-            placeholderText: "Ask Meddy about Panado directions, fever...",
-            features: [
+            
+            // CAREGIVER FUNCTIONALITIES
+            caregiverFeatures: [
                 {
-                    speech: {
-                        en: "👋 Hi! You scanned the QR code on <strong>Panado® Paediatric Syrup</strong>. It contains Paracetamol, used to treat mild-to-moderate pain and reduce fever in children.",
-                        zu: "👋 Sawubona! Uskene i-QR code ku-<strong>Panado® Paediatric Syrup</strong>. Ine-Paracetamol esiza ukuhlisa imfiva nobuhlungu kubantwana.",
-                        st: "👋 Dumela! O skenne QR code ho <strong>Panado® Paediatric Syrup</strong>. E na le Paracetamol bakeng sa ho alafa feberu le bohloko ho bana."
-                    },
-                    card: `<div class="info-card-title">1. What is this medicine?</div>
-                           <p style="font-size:12px; line-height:1.4;">Panado® Paediatric Syrup provides effective relief from fever and pain associated with teething, headaches, colds, and post-immunisation reactions.</p>`
+                    title: "1. Overview",
+                    speech: "👋 You scanned <strong>Panado® Paediatric Syrup (Strawberry)</strong>. It contains Paracetamol (120 mg/5 mL) for symptomatic relief of mild to moderate pain and fever in children.",
+                    card: `<div class="info-card-title">1. What is this medicine used for?</div>
+                           <p style="font-size:12px; line-height:1.4;">Used to treat fever and mild to moderate pain (e.g., teething, colds, immunisations). Consult a doctor if symptoms do not improve after 5 days.</p>`
                 },
                 {
-                    speech: {
-                        en: "🥄 <strong>Directions:</strong> Dosing depends on your child's weight! Always measure using an oral syringe or dropper, never a household spoon.",
-                        zu: "🥄 <strong>Ukusetshenziswa:</strong> Sebenzisa isirinji somlomo noma idropper, ungalokothi usebenzise isipuni sekhishi!",
-                        st: "🥄 <strong>Tsebeliso:</strong> Sebelisa syringe kapa dropper, le ka mohla o se ke wa sebelisa khaba ea kichine!"
-                    },
-                    card: `<div class="info-card-title">2. How should it be used? (Caregiver Dosing)</div>
+                    title: "2. Age & Dosage Guide",
+                    speech: "🥄 <strong>Dosing Guide:</strong> Dosage is based on child age/weight. Always administer using a metric oral syringe or medicine cup.",
+                    card: `<div class="info-card-title">2. Approved Age & Dosage Calculator</div>
                            <div class="dose-calc-box">
                                <select class="dose-select" id="doseWeightSelect" onchange="calculatePanadoDose()">
-                                   <option value="">-- Choose Child Weight / Age --</option>
-                                   <option value="3-5kg">3 - 5 kg (3 to 6 months)</option>
-                                   <option value="6-9kg">6 - 9 kg (6 to 12 months)</option>
-                                   <option value="10-13kg">10 - 13 kg (1 to 3 years)</option>
-                                   <option value="14-18kg">14 - 18 kg (3 to 5 years)</option>
-                                   <option value="19-25kg">19 - 25 kg (6 to 8 years)</option>
+                                   <option value="">-- Choose Child Age Bracket --</option>
+                                   <option value="infant">3 months to 1 year (2.5 mL - 5 mL)</option>
+                                   <option value="child1">1 to 5 years (5 mL - 10 mL)</option>
+                                   <option value="child2">6 to 12 years (10 mL - 20 mL)</option>
                                </select>
-                               <div class="dose-result" id="doseResultText">Select weight above to view approved dose</div>
+                               <div class="dose-result" id="doseResultText">Select age bracket to view approved dose</div>
                            </div>`
                 },
                 {
-                    speech: {
-                        en: "⏱️ <strong>Important Warnings:</strong> Repeat doses every 4 to 6 hours as needed. Do NOT exceed 4 doses within any 24-hour period.",
-                        zu: "⏱️ <strong>Izixwayiso:</strong> Phinda emva kwamahora angu-4 kuya kwayi-6. Ungadluli izikhathi ezu-4 emahoreni angu-24.",
-                        st: "⏱️ <strong>Ditemoso:</strong> Pheta mor'a lihora tse 4 ho isa ho 6. O se ke wa feta makgetlo a 4 lihoreng tse 24."
-                    },
-                    card: `<div class="info-card-title">3. What should I know?</div>
-                           <p style="font-size:12px; line-height:1.4;">Do not combine with other medicines containing Paracetamol to prevent accidental overdose. If symptoms persist beyond 48 hours, consult a healthcare professional.</p>`
+                    title: "3. Interval & Safety Warnings",
+                    speech: "⏱️ Repeat every 4 hours if needed. <strong>MAX 4 doses per 24 hours.</strong> Do NOT use continuously for more than 5 to 10 days.",
+                    card: `<div class="info-card-title">3. Critical Safety Warnings</div>
+                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>⚠️ Paracetamol Overdose Warning:</strong> Contains paracetamol which can cause severe liver damage in high doses. Do not combine with other paracetamol-containing medicines.</p>`
                 },
                 {
-                    speech: {
-                        en: "🚨 <strong>Watch Out:</strong> Seek immediate medical care if you notice skin rashes, swelling, or if the child becomes unusually lethargic.",
-                        zu: "🚨 <strong>Qaphela:</strong> Thola usizo lukadokotela ngokushesha uma ubona ukuqubuka, ukuvuvukala noma ukudangala.",
-                        st: "🚨 <strong>Hlokomela:</strong> Batla ngaka hang-hang ha o bona lekhopho kapa ho ruruha."
-                    },
-                    card: `<div class="info-card-title">4. What should I watch out for?</div>
-                           <p style="font-size:12px; line-height:1.4;">Common mild reactions may include mild drowsiness. Signs of acute overdose require immediate emergency medical attention.</p>`
+                    title: "4. Storage",
+                    speech: "❄️ Store at or below 25°C protected from light. Keep bottle well closed and out of reach of children. Do not freeze.",
+                    card: `<div class="info-card-title">4. Storage Instructions</div>
+                           <p style="font-size:12px; line-height:1.4;">Store in outer carton. Do not store in bathrooms. Return unused syrup to your pharmacist for safe disposal.</p>`
+                }
+            ],
+
+            // CHILD ZONE (FUN & SCIENCE VIDEOS)
+            childFeatures: [
+                {
+                    title: "🎥 How Medicine Works",
+                    speech: "🌟 Hi there! Watch this fun video to see how tiny helper superheroes inside medicine fight off fever to make you feel better!",
+                    card: `<div class="child-badge">⭐ Educational Video for Kids</div>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">How does your body process medicine? [https://www.youtube.com/watch?v=uOcpsXMJcJk]</p>
+                           <div class="video-container">
+                               <iframe src="https://www.youtube.com/embed/uOcpsXMJcJk" title="How Medicine Works" allowfullscreen></iframe>
+                           </div>`
                 },
                 {
-                    speech: {
-                        en: "❄️ <strong>Storage:</strong> Store below 25°C in a cool, dry place away from direct sunlight. Keep out of reach of children!",
-                        zu: "❄️ <strong>Ukugcina:</strong> Gcina endaweni epholile ngaphansi kwa-25°C. Gcina kude nabantwana!",
-                        st: "❄️ <strong>Phetla:</strong> Beha sebakeng se phodileng ka tlas'a 25°C. Beha hole le bana!"
-                    },
-                    card: `<div class="info-card-title">5. How should I store it?</div>
-                           <p style="font-size:12px; line-height:1.4;">Keep bottle tightly closed. Do not freeze. Safely discard expired or unused medicine.</p>`
-                },
-                {
-                    speech: {
-                        en: "🧠 <strong>Learn with Meddy:</strong> Test your knowledge! What tool should you use to give syrup to an infant?",
-                        zu: "🧠 <strong>Imininingwane:</strong> Yiphi ithuluzi elimayelana nokunikeza umuthi?",
-                        st: "🧠 <strong>Thuto:</strong> Ke sesebeliswa sefe se nepahetseng?"
-                    },
-                    card: `<div class="info-card-title">6. Interactive Learning Quiz</div>
-                           <div style="display:flex; flex-direction:column; gap:6px;">
-                               <button class="switch-product-btn" onclick="checkQuiz(false)">A) Normal household tea spoon</button>
-                               <button class="switch-product-btn" onclick="checkQuiz(true)">B) Metric oral syringe or dropper</button>
+                    title: "🦠 Immune System Superheroes",
+                    speech: "🦠 Ever wonder why we catch a cold? Watch how your immune system fights off sneaky germ monsters!",
+                    card: `<div class="child-badge">🔬 Fun Science Video</div>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Meet Your Immune System Superheroes! [https://www.youtube.com/watch?v=oFT10dip0NE]</p>
+                           <div class="video-container">
+                               <iframe src="https://www.youtube.com/embed/oFT10dip0NE" title="Meet Your Body's Superheroes" allowfullscreen></iframe>
                            </div>`
                 }
             ],
+
             qa: [
-                { key: ["fever", "temp"], answer: "🌡️ Panado treats fever (>38°C). Measure temperature under the armpit or ear. Keep child hydrated." },
-                { key: ["dose", "spoon", "much", "weight"], answer: "⚖️ Dosing is determined by weight. Use an oral syringe for exact metric dosage." },
-                { key: ["interval", "often", "time"], answer: "⏱️ Give every 4 to 6 hours as needed. Maximum 4 doses in 24 hours." }
+                { key: ["fever", "temp"], answer: "🌡️ Panado treats fever (>38°C). Ensure your child drinks plenty of fluids and stays rested." },
+                { key: ["dose", "spoon"], answer: "⚖️ Dosing: 3–12 mos (2.5–5 mL), 1–5 yrs (5–10 mL), 6–12 yrs (10–20 mL). Max 4 doses in 24 hours." }
             ]
         },
 
-        LINCTAGON: {
-            brandName: "Linctagon® C Syrup",
-            subtitle: "Adcock Ingram® AI Health Companion",
-            themeColor: "#10b981",
-            themeGradient: "linear-gradient(135deg, #34d399 0%, #059669 100%)",
-            capColor: "#10B981",
-            bandColor: "#059669",
-            placeholderText: "Ask Meddy about Linctagon cough/cold support...",
-            features: [
+        ALLERGEX: {
+            brandName: "Allergex® Tablets (4 mg)",
+            subtitle: "Adcock Ingram - Chlorphenamine Maleate",
+            themeColor: "#d97706",
+            themeGradient: "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
+            capColor: "#f59e0b",
+            bandColor: "#b45309",
+
+            caregiverFeatures: [
                 {
-                    speech: {
-                        en: "👋 Hi! You scanned the QR code on <strong>Linctagon® C Syrup</strong>. It contains Pelargonium, Vitamin C, and Zinc to support runny nose and coughing.",
-                        zu: "👋 Sawubona! Uskene i-QR code ku-<strong>Linctagon® C Syrup</strong>. Isiza ukwelapha ukukhwehlela nomkhuhlane.",
-                        st: "👋 Dumela! O skenne QR code ho <strong>Linctagon® C Syrup</strong>. E thusha ho alafa kgothlelo le cold."
-                    },
-                    card: `<div class="info-card-title">1. What is this medicine?</div>
-                           <p style="font-size:12px; line-height:1.4;">Linctagon® C Syrup offers natural active support to shorten the duration of respiratory infections, soothing coughs and congestion.</p>`
+                    title: "1. Indications",
+                    speech: "👋 You scanned <strong>Allergex® 4 mg Tablets</strong>. Contains Chlorphenamine Maleate to treat allergic conditions such as hay fever, urticaria (hives), insect bites, and rhinitis.",
+                    card: `<div class="info-card-title">1. What is Allergex used for?</div>
+                           <p style="font-size:12px; line-height:1.4;">Relieves allergy symptoms including sneezing, runny nose, itchy skin rashes, and insect bites.</p>`
                 },
                 {
-                    speech: {
-                        en: "🍃 <strong>Directions:</strong> Give at the first sign of cold or respiratory symptoms according to age guidelines.",
-                        zu: "🍃 <strong>Ukusetshenziswa:</strong> Qala ukuyisebenzisa lapho ubona izimpawu zokuqala zomkhuhlane.",
-                        st: "🍃 <strong>Tsebeliso:</strong> Qala ho e sebedisa ha matshwao a cold a qala."
-                    },
-                    card: `<div class="info-card-title">2. How should it be used?</div>
-                           <p style="font-size:12px; line-height:1.4;">Use the provided measuring cup or spoon. Follow dosage rules on the package insert based on age.</p>`
+                    title: "2. Dosage Guidelines",
+                    speech: "💊 <strong>Approved Dose:</strong><br>• Adults & Children 12+: 1 tablet (4 mg) every 4 to 6 hrs (Max 24 mg/day).<br>• Children 6–12 yrs: Half tablet (2 mg) every 4 to 6 hrs (Max 12 mg/day).",
+                    card: `<div class="info-card-title">2. Age Restrictions & Dosing</div>
+                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>🚫 Age Limit:</strong> Use in children under 6 years of age is NOT recommended per SAHPRA PIL guidance.</p>`
+                },
+                {
+                    title: "3. Drowsiness Warning",
+                    speech: "😴 <strong>Drowsiness Alert:</strong> Allergex leads to drowsiness. Avoid driving or operating machinery. Avoid alcohol and sedatives as they worsen sleepiness.",
+                    card: `<div class="info-card-title">3. Safety Precautions</div>
+                           <p style="font-size:12px; line-height:1.4;">Contains lactose (caution for lactose intolerance or diabetes). Do not take if you suffer from glaucoma or severe asthma attacks.</p>`
                 }
             ],
+
+            childFeatures: [
+                {
+                    title: "🎥 Why Do We Sneeze?",
+                    speech: "🌼 Ever wonder why pollen or dust makes you sneeze? Watch this cartoon video to see why your nose gets itchy!",
+                    card: `<div class="child-badge">🌼 Cartoon Science for Kids</div>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Why Do We Sneeze & Get Allergies? [https://www.youtube.com/watch?v=sM3FDsMAMdc]</p>
+                           <div class="video-container">
+                               <iframe src="https://www.youtube.com/embed/sM3FDsMAMdc" title="Why Do We Get Allergies" allowfullscreen></iframe>
+                           </div>`
+                }
+            ],
+
             qa: [
-                { key: ["cough", "mucus"], answer: "🍃 Linctagon® contains Pelargonium to soothe coughs and assist respiratory tract clearance." },
-                { key: ["zinc", "vitamin c"], answer: "🛡️ Linctagon® C includes Vitamin C and Zinc to support your immune system during colds." }
+                { key: ["sleep", "drowsy"], answer: "😴 Yes, Allergex causes drowsiness. Do not drive or engage in hazardous activities." },
+                { key: ["under 6", "toddler"], answer: "🚫 Allergex tablets are not recommended for children under 6 years of age." }
+            ]
+        },
+
+        NEBRAFEN: {
+            brandName: "Adco Nebrafen Solution",
+            subtitle: "Adcock Ingram Critical Care - Inhalant",
+            themeColor: "#2563eb",
+            themeGradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+            capColor: "#3b82f6",
+            bandColor: "#1d4ed8",
+
+            caregiverFeatures: [
+                {
+                    title: "1. Overview & Use",
+                    speech: "💨 You scanned <strong>Adco Nebrafen Inhalant Solution</strong>. Contains Fenoterol Hydrobromide (1.25mg) & Ipratropium Bromide (0.5mg). Used via nebuliser to open airways in asthma or bronchitis.",
+                    card: `<div class="info-card-title">1. Nebuliser Inhalant Solution</div>
+                           <p style="font-size:12px; line-height:1.4;">For oral inhalation only via nebuliser/ventilator. Opens constricted bronchial airways during asthma attacks.</p>`
+                },
+                {
+                    title: "2. Administration Guide",
+                    speech: "🌬️ <strong>Ready to use:</strong> Each 4 mL polyethylene ampoule requires NO dilution. Squeeze complete contents into nebuliser reservoir immediately after opening.",
+                    card: `<div class="info-card-title">2. How to Administer</div>
+                           <p style="font-size:12px; line-height:1.4;">Use via mouthpiece (preferred) or well-fitting mask. <strong>⚠️ Protect eyes:</strong> Ensure mist does not enter the eyes as it may trigger glaucoma complications.</p>`
+                },
+                {
+                    title: "3. Dosage & Warnings",
+                    speech: "⚠️ <strong>Strict Guidance:</strong> Per PIL, this formulation is indicated for adults. Use under strict medical supervision.",
+                    card: `<div class="info-card-title">3. Safety Precautions</div>
+                           <p style="font-size:12px; line-height:1.4;">Contains no preservative; discard partly used ampoules. Possible side effects include hand tremors, fast heartbeat, or dry mouth.</p>`
+                }
+            ],
+
+            childFeatures: [
+                {
+                    title: "💨 Inhalers & Spacers",
+                    speech: "🌬️ Let's see how special breathing masks and inhalers blow clean, clear air right into your lungs so you can run fast!",
+                    card: `<div class="child-badge">💨 Superhero Breathing Video</div>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Daniel Learns About Asthma & Inhalers [https://www.youtube.com/watch?v=ZAGvkKWNt_c]</p>
+                           <div class="video-container">
+                               <iframe src="https://www.youtube.com/embed/ZAGvkKWNt_c" title="Daniel Learns About Asthma" allowfullscreen></iframe>
+                           </div>`
+                },
+                {
+                    title: "🫁 How Lungs Work",
+                    speech: "🫁 Watch how your lungs inflate like tiny pink balloons every time you take a big breath!",
+                    card: `<div class="child-badge">🎈 Human Body Science</div>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">How Do Our Lungs Breathe? [https://www.youtube.com/watch?v=mOKmjYwfDGU]</p>
+                           <div class="video-container">
+                               <iframe src="https://www.youtube.com/embed/mOKmjYwfDGU" title="How Lungs Work" allowfullscreen></iframe>
+                           </div>`
+                }
+            ],
+
+            qa: [
+                { key: ["eye", "vision"], answer: "👁️ Keep nebuliser mist away from eyes to prevent pain or blurred vision." },
+                { key: ["dilute", "water"], answer: "💧 No! Adco Nebrafen is isotonic and ready for use—do not dilute with water." }
             ]
         }
     };
 
-    let activeProductKey = "PANADO"; // Default initial fallback
-    let currentFeatureIndex = 0;
-    let currentLang = 'en';
+    let activeProductKey = "PANADO";
+    let currentSegment = 'caregiver'; // 'caregiver' or 'child'
+    let activeFeatureIndex = 0;
 
-    // DIRECT READ FROM QR CODE PARAMETER (?product=PANADO or ?product=LINCTAGON)
     function initFromUrl() {
         const urlParams = new URLSearchParams(window.location.search);
         const productParam = urlParams.get('product');
@@ -528,34 +528,42 @@
             activeProductKey = productParam.toUpperCase();
         }
 
+        const hostInput = document.getElementById('customHostInput');
+        if (window.location.protocol.startsWith('http')) {
+            hostInput.value = window.location.origin + window.location.pathname;
+        } else {
+            hostInput.value = "https://yourname.github.io/meddy/";
+        }
+
         renderProductContext();
-        generatePackagingQR(activeProductKey);
+        updateQrTargetUrl();
     }
 
     function switchProduct(productKey) {
-        // Update URL parameter without full page reload for fast demo
         const newUrl = window.location.pathname + '?product=' + productKey;
         window.history.pushState({ path: newUrl }, '', newUrl);
         activeProductKey = productKey;
-        currentFeatureIndex = 0;
+        activeFeatureIndex = 0;
         renderProductContext();
-        generatePackagingQR(productKey);
+        updateQrTargetUrl();
     }
 
-    function generatePackagingQR(productKey) {
-        const fullUrl = window.location.origin + window.location.pathname + '?product=' + productKey;
-        // Generate live, scannable QR code image using QuickChart API
-        const qrApiUrl = `https://quickchart.io/qr?text=${encodeURIComponent(fullUrl)}&size=180&dark=0f172a`;
-        
-        document.getElementById('qrCodeImg').src = qrApiUrl;
-        document.getElementById('qrLabel').innerText = `Scannable QR for ${productCatalogue[productKey].brandName}`;
-        document.getElementById('qrTargetUrl').innerText = `Target URL: ?product=${productKey}`;
+    function setSegment(seg) {
+        currentSegment = seg;
+        activeFeatureIndex = 0;
+
+        document.getElementById('segCaregiver').classList.toggle('active', seg === 'caregiver');
+        document.getElementById('segChild').classList.toggle('active', seg === 'child');
+
+        // Hide chat footer in child mode for clean UI
+        document.getElementById('appFooter').style.display = seg === 'child' ? 'none' : 'flex';
+
+        renderProductContext();
     }
 
     function renderProductContext() {
         const product = productCatalogue[activeProductKey];
 
-        // Dynamic Brand Theme Updates
         document.documentElement.style.setProperty('--brand-theme', product.themeColor);
         document.documentElement.style.setProperty('--brand-gradient', product.themeGradient);
         document.getElementById('pillCap').setAttribute('fill', product.capColor);
@@ -563,32 +571,32 @@
         
         document.getElementById('brandTitle').innerText = product.brandName;
         document.getElementById('medTagDisplay').innerText = product.subtitle;
-        document.getElementById('chatInput').placeholder = product.placeholderText;
 
-        renderStage();
+        const featureList = currentSegment === 'caregiver' ? product.caregiverFeatures : product.childFeatures;
+
+        // Render Nav Buttons
+        const navContainer = document.getElementById('navigationTabs');
+        navContainer.innerHTML = featureList.map((item, idx) => `
+            <button class="feature-nav-btn ${idx === activeFeatureIndex ? 'active' : ''}" onclick="selectFeature(${idx})">
+                ${item.title}
+            </button>
+        `).join('');
+
+        renderFeatureContent();
     }
 
-    function loadFeature(index) {
-        currentFeatureIndex = index;
-        renderStage();
+    function selectFeature(idx) {
+        activeFeatureIndex = idx;
+        renderProductContext();
     }
 
-    function renderStage() {
+    function renderFeatureContent() {
         const product = productCatalogue[activeProductKey];
-        const feat = product.features[currentFeatureIndex] || product.features[0];
+        const featureList = currentSegment === 'caregiver' ? product.caregiverFeatures : product.childFeatures;
+        const currentItem = featureList[activeFeatureIndex] || featureList[0];
 
-        // Highlight Active Feature Button
-        const btns = document.querySelectorAll('.feature-nav-btn');
-        btns.forEach((b, i) => {
-            if (i === currentFeatureIndex) b.classList.add('active');
-            else b.classList.remove('active');
-        });
-
-        document.getElementById('speechText').innerHTML = feat.speech[currentLang] || feat.speech['en'];
-        document.getElementById('infoCard').innerHTML = feat.card;
-
-        document.getElementById('prevBtn').style.visibility = currentFeatureIndex === 0 ? 'hidden' : 'visible';
-        document.getElementById('nextBtn').textContent = currentFeatureIndex === product.features.length - 1 ? 'Finish Guide 🎉' : 'Next Topic ➤';
+        document.getElementById('speechText').innerHTML = currentItem.speech;
+        document.getElementById('infoCard').innerHTML = currentItem.card;
     }
 
     function calculatePanadoDose() {
@@ -596,100 +604,45 @@
         const res = document.getElementById('doseResultText');
         
         const doseTable = {
-            "3-5kg": " Give 2.5 ml (Max 4 times per 24h)",
-            "6-9kg": " Give 5 ml (Max 4 times per 24h)",
-            "10-13kg": " Give 7.5 ml (Max 4 times per 24h)",
-            "14-18kg": " Give 10 ml (Max 4 times per 24h)",
-            "19-25kg": " Give 15 ml (Max 4 times per 24h)"
+            "infant": " 2.5 mL to 5 mL (60 mg to 120 mg)",
+            "child1": " 5 mL to 10 mL (120 mg to 240 mg)",
+            "child2": " 10 mL to 20 mL (240 mg to 480 mg)"
         };
 
-        if (doseTable[val]) {
-            res.innerHTML = "<strong>Approved Dose:</strong>" + doseTable[val];
-        } else {
-            res.innerText = "Select weight above to view approved dose";
-        }
+        res.innerHTML = doseTable[val] ? "<strong>Approved Dose:</strong> Give" + doseTable[val] + " every 4 hours as needed (Max 4 times per 24h)." : "Select age bracket to view approved dose";
     }
 
-    function checkQuiz(isCorrect) {
-        const card = document.getElementById('speechCard');
-        if (isCorrect) {
-            card.innerHTML = '<div class="speech-text">🎉 <strong>Correct!</strong> Metric oral syringes ensure exact dosing and prevent accidental over/under-dosing!</div>';
-            card.classList.remove('warning-mode');
-        } else {
-            card.innerHTML = '<div class="speech-text">🚨 <strong>Incorrect!</strong> Household teaspoons vary in size. Always use an oral syringe or dropper.</div>';
-            card.classList.add('warning-mode');
-        }
-    }
+    function updateQrTargetUrl() {
+        let baseUrl = document.getElementById('customHostInput').value.trim() || "https://yourname.github.io/meddy/";
+        baseUrl = baseUrl.split('?')[0];
 
-    function nextStep() {
-        const product = productCatalogue[activeProductKey];
-        if (currentFeatureIndex < product.features.length - 1) {
-            currentFeatureIndex++;
-            renderStage();
-        } else {
-            alert(`You completed Meddy's guide for ${product.brandName}!`);
-        }
-    }
-
-    function prevStep() {
-        if (currentFeatureIndex > 0) {
-            currentFeatureIndex--;
-            renderStage();
-        }
-    }
-
-    function setSegment(seg) {
-        document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
-        if (seg === 'caregiver') document.getElementById('segCaregiver').classList.add('active');
-        if (seg === 'simple') document.getElementById('segSimple').classList.add('active');
-        if (seg === 'child') document.getElementById('segChild').classList.add('active');
-    }
-
-    function switchLanguage() {
-        currentLang = document.getElementById('langSelect').value;
-        renderStage();
-    }
-
-    function toggleSpeech() {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const text = document.getElementById('speechCard').innerText;
-            const msg = new SpeechSynthesisUtterance(text);
-            const wave = document.getElementById('soundWave');
-            wave.classList.add('active');
-            msg.onend = () => wave.classList.remove('active');
-            msg.onerror = () => wave.classList.remove('active');
-            window.speechSynthesis.speak(msg);
-        }
+        const targetUrl = `${baseUrl}?product=${activeProductKey}`;
+        const encodedUrl = encodeURIComponent(targetUrl);
+        
+        document.getElementById('qrCodeImg').src = `https://quickchart.io/qr?text=${encodedUrl}&size=200&dark=0f172a`;
+        document.getElementById('qrLabel').innerText = `Scannable QR for ${productCatalogue[activeProductKey].brandName}`;
+        document.getElementById('qrTargetUrl').innerText = targetUrl;
     }
 
     function askMeddy() {
         const input = document.getElementById('chatInput');
         const q = input.value.toLowerCase().trim();
-        const card = document.getElementById('speechCard');
         const product = productCatalogue[activeProductKey];
 
         if (!q) return;
 
-        let foundAnswer = null;
-        for (let item of product.qa) {
-            if (item.key.some(k => q.includes(k))) {
-                foundAnswer = item.answer;
-                break;
-            }
-        }
-
-        if (foundAnswer) {
-            card.innerHTML = `<div class="speech-text">${foundAnswer}</div>`;
+        let found = product.qa.find(item => item.key.some(k => q.includes(k)));
+        
+        if (found) {
+            document.getElementById('speechText').innerHTML = found.answer;
         } else {
-            card.innerHTML = `<div class="speech-text">🤖 Meddy searched official <b>${product.brandName}</b> PIL guidance for "<i>${input.value}</i>". Always verify exact usage with your doctor or healthcare provider.</div>`;
+            document.getElementById('speechText').innerHTML = `🤖 Meddy verified <b>${product.brandName}</b> PIL guidance regarding "${input.value}". Always consult your doctor or pharmacist.`;
         }
         input.value = '';
     }
 
     function handleKey(e) { if (e.key === 'Enter') askMeddy(); }
 
-    // INITIALIZE APPLICATION UPON OPENING
     window.onload = initFromUrl;
 </script>
 
