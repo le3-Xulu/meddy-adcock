@@ -1,32 +1,32 @@
-# 💊 Meddy AI – Digital Health Companion
+# Meddy AI – Digital Health Companion
 
 **Meddy AI** is an interactive, multi-product digital health companion built for SAHPRA-compliant Patient Information Leaflets (PIL). It provides digital, easy-to-understand medication guides for caregivers and animated, child-friendly educational content for pediatric healthcare.
 
 ---
 
-## ✨ Features
+## Features
 
-- 📱 **Multi-Product Support**: Easily switch between medication profiles with dedicated dosing calculators, instructions, and warnings:
+-  **Multi-Product Support**: Easily switch between medication profiles with dedicated dosing calculators, instructions, and warnings:
   - **Panado® Paediatric Syrup** *(Paracetamol)*
   - **Allergex® Tablets** *(Chlorphenamine Maleate)*
   - **Adco Nebrafen Inhalant** *(Fenoterol & Ipratropium Bromide)*
-- 👨‍👩‍👧 **Caregiver View**:
+-  **Caregiver View**:
   - Step-by-step medication guides (Overview, Dosing, Safety Warnings, Storage).
   - Interactive **Dose Calculator** based on age and weight guidelines.
   - SAHPRA Patient Information Leaflet (PIL) verified information.
-- 🎈 **Child Zone**:
+- **Child Zone**:
   - Animated character avatar with natural floating & blinking animations.
   - Curated, safe educational YouTube videos explaining how medicine works, why we sneeze, and how lungs function.
-- 📦 **Dynamic Packaging & QR Code Generator**:
+-  **Dynamic Packaging & QR Code Generator**:
   - Live QR Code generator integrated with [QuickChart API](https://quickchart.io).
   - Test scannable packaging QR codes using query string routing (`?product=PANADO`, `?product=ALLERGEX`, `?product=NEBRAFEN`).
-- 💬 **Ask Meddy Assistant**:
+- **Ask Meddy Assistant**:
   - Natural Q&A keyword matching for fast answers regarding dosage, safety warnings, and side effects.
-- 🌐 **Multilingual Ready**: UI layout designed for quick language switching (English, isiZulu, Sesotho).
+-  **Multilingual Ready**: UI layout designed for quick language switching (English, isiZulu, Sesotho).
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **HTML5 & CSS3**: Modern glassmorphism UI built with CSS custom properties (CSS variables), flexbox layout, and CSS keyframe animations.
 - **JavaScript (Vanilla ES6+)**: Responsive state management, query parameter routing, dynamic DOM rendering, and integrated dosage calculators.
@@ -35,7 +35,7 @@
 
 ---
 
-## 🚀 Live Demo & QR Scanning Workflow
+## Live Demo & QR Scanning Workflow
 
 ### 1. Run / Host the Application
 You can open `index.html` directly in any web browser or deploy it via GitHub Pages:
