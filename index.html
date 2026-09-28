@@ -12,6 +12,7 @@
         :root {
             --brand-theme: #008a9a;
             --brand-gradient: linear-gradient(135deg, #00BCD4 0%, #008A9A 100%);
+            --recomed-theme: #00c897;
             --surface-glass: rgba(255, 255, 255, 0.95);
             --surface-border: rgba(226, 232, 240, 0.8);
             --text-primary: #0f172a;
@@ -51,8 +52,8 @@
         .app-shell {
             width: 100%;
             max-width: 420px;
-            height: 840px;
-            max-height: 92vh;
+            height: 860px;
+            max-height: 94vh;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -122,19 +123,59 @@
         .eye-blink { animation: blinkEyes 4s infinite; transform-origin: center; }
         @keyframes blinkEyes { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(0.1); } }
 
+        /* SCROLLABLE NAV TABS */
         .feature-nav-scroll {
-            width: 100%; display: flex; gap: 6px; overflow-x: auto;
-            padding-bottom: 8px; margin-bottom: 8px; scrollbar-width: none;
+            width: 100%; 
+            display: flex; 
+            gap: 8px; 
+            overflow-x: auto;
+            overflow-y: visible;
+            white-space: nowrap;
+            padding: 8px 4px 12px 4px; 
+            margin-bottom: 4px; 
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
         .feature-nav-scroll::-webkit-scrollbar { display: none; }
 
         .feature-nav-btn {
-            white-space: nowrap; padding: 6px 12px; border-radius: 16px;
-            background: #ffffff; border: 1px solid #cbd5e1; font-size: 11px;
-            font-weight: 700; color: var(--text-secondary); cursor: pointer; flex-shrink: 0;
+            white-space: nowrap; 
+            padding: 8px 16px; 
+            border-radius: 16px;
+            background: #ffffff; 
+            border: 1px solid #cbd5e1; 
+            font-size: 11.5px;
+            font-weight: 700; 
+            color: var(--text-secondary); 
+            cursor: pointer; 
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            height: 36px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            transition: all 0.2s ease;
         }
 
-        .feature-nav-btn.active { background: var(--brand-theme); color: white; border-color: var(--brand-theme); }
+        .feature-nav-btn.active { 
+            background: var(--brand-theme); 
+            color: white; 
+            border-color: var(--brand-theme); 
+            box-shadow: 0 4px 10px rgba(0, 138, 154, 0.25);
+        }
+
+        .feature-nav-btn.recomed-tab {
+            border-color: #00c897;
+            color: #00a87e;
+            background: #f0fdf4;
+        }
+
+        .feature-nav-btn.recomed-tab.active {
+            background: #00c897;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 200, 151, 0.3);
+        }
 
         .speech-card {
             width: 100%; background: var(--surface-glass); border: 1px solid var(--surface-border);
@@ -152,6 +193,91 @@
         .info-card-title {
             font-size: 10px; font-weight: 800; text-transform: uppercase;
             letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 6px;
+        }
+
+        /* PIL EXTERNAL LINK BUTTON */
+        .pil-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .pil-link-btn:hover {
+            background: var(--brand-theme);
+            color: #ffffff;
+            border-color: var(--brand-theme);
+        }
+
+        /* RECOMED SEGUE STYLES */
+        .recomed-banner {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 14px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        .recomed-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: var(--recomed-theme);
+            color: #ffffff;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 200, 151, 0.25);
+            transition: all 0.2s ease;
+        }
+        .recomed-btn:hover {
+            background: #00a87e;
+            transform: translateY(-1px);
+        }
+
+        .recomed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .recomed-chip {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 8px 4px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .recomed-chip:hover {
+            border-color: var(--recomed-theme);
+            background: #f0fdf4;
+            color: #008a9a;
         }
 
         .dose-calc-box {
@@ -174,6 +300,7 @@
             width: 100%; position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0; overflow: hidden; border-radius: 16px; border: 2px solid #38bdf8;
             margin-top: 8px; box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            background: #000;
         }
 
         .video-container iframe {
@@ -288,17 +415,17 @@
             <div class="info-card" id="infoCard"></div>
 
             <div class="disclaimer-banner">
-                ℹ️ Meddy complements approved SAHPRA Patient Information Leaflets. For medical concerns, consult a doctor or healthcare professional.
+                ℹ️ Meddy complements approved SAHPRA Patient Information Leaflets. For severe symptoms, easily transition to RecoMed to consult a doctor.
             </div>
         </div>
 
         <div class="app-footer" id="appFooter">
-            <select class="lang-select" id="langSelect" onchange="switchLanguage()">
+            <select class="lang-select" id="langSelect">
                 <option value="en">🇬🇧 EN</option>
                 <option value="zu">🇿🇦 ZU</option>
                 <option value="st">🇿🇦 ST</option>
             </select>
-            <input type="text" class="chat-input" id="chatInput" placeholder="Ask Meddy a question..." onkeypress="handleKey(event)">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask Meddy or type symptoms..." onkeypress="handleKey(event)">
             <button class="send-btn" onclick="askMeddy()">➤</button>
         </div>
     </div>
@@ -307,7 +434,7 @@
     <div class="packaging-simulator">
         <div class="pack-title">📦 Adcock Ingram Packaging QR Generator</div>
         <div class="pack-desc">
-            Enter your deployed GitHub URL below to generate phone-scannable QR codes for your live prototype presentation:
+            Enter your deployed GitHub URL below to generate phone-scannable QR codes:
         </div>
 
         <input type="text" class="host-url-input" id="customHostInput" placeholder="https://yourname.github.io/meddy/" oninput="updateQrTargetUrl()">
@@ -329,16 +456,49 @@
             <span>🌼 <strong>Allergex® Tablets (4 mg)</strong><br><small style="color:#64748b;">Antihistamine (Chlorphenamine)</small></span>
             <span style="color:#d97706;">Select ›</span>
         </button>
-
-        <button class="switch-product-btn" onclick="switchProduct('NEBRAFEN')">
-            <span>💨 <strong>Adco Nebrafen Inhalant</strong><br><small style="color:#64748b;">Bronchodilator Nebuliser Solution</small></span>
-            <span style="color:#2563eb;">Select ›</span>
-        </button>
     </div>
 </div>
 
 <script>
-    // CATALOGUE DEDICATED EXCLUSIVELY TO ADCOCK INGRAM SAHPRA PIL DATA
+    // Shared RecoMed Segue Component
+    const recomedCardTemplate = `
+        <div class="info-card-title" style="color: #00a87e;">🏥 Need Clinical Care? (RecoMed Integration)</div>
+        <p style="font-size: 12px; line-height: 1.4; color: #334155;">
+            If symptoms persist, worsen, or require immediate medical evaluation, book an online or in-person consultation with a nearby healthcare provider.
+        </p>
+        
+        <div class="recomed-grid">
+            <a href="https://www.recomed.co.za/general-practitioner/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">🩺</span>
+                <span>General Practitioner</span>
+            </a>
+            <a href="https://www.recomed.co.za/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">💻</span>
+                <span>Virtual Consult</span>
+            </a>
+            <a href="https://www.recomed.co.za/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">🏥</span>
+                <span>Clinic / Pharmacy</span>
+            </a>
+            <a href="https://www.recomed.co.za/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">🤢</span>
+                <span>Stomach Bug</span>
+            </a>
+            <a href="https://www.recomed.co.za/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">📄</span>
+                <span>Sick Note</span>
+            </a>
+            <a href="https://www.recomed.co.za/dentist/" target="_blank" class="recomed-chip">
+                <span style="font-size: 16px;">🦷</span>
+                <span>Dentist</span>
+            </a>
+        </div>
+
+        <a class="recomed-btn" href="https://www.recomed.co.za/" target="_blank" rel="noopener">
+            🔍 Find Nearby Doctors on RecoMed ›
+        </a>
+    `;
+
     const productCatalogue = {
         PANADO: {
             brandName: "Panado® Paediatric Syrup",
@@ -348,13 +508,13 @@
             capColor: "#00BCD4",
             bandColor: "#008A9A",
             
-            // CAREGIVER FUNCTIONALITIES
             caregiverFeatures: [
                 {
                     title: "1. Overview",
-                    speech: "👋 You scanned <strong>Panado® Paediatric Syrup (Strawberry)</strong>. It contains Paracetamol (120 mg/5 mL) for symptomatic relief of mild to moderate pain and fever in children.",
+                    speech: "👋 You scanned <strong>Panado® Paediatric Syrup</strong>. It contains Paracetamol (120 mg/5 mL) for symptomatic relief of mild to moderate pain and fever in children.",
                     card: `<div class="info-card-title">1. What is this medicine used for?</div>
-                           <p style="font-size:12px; line-height:1.4;">Used to treat fever and mild to moderate pain (e.g., teething, colds, immunisations). Consult a doctor if symptoms do not improve after 5 days.</p>`
+                           <p style="font-size:12px; line-height:1.4;">Used to treat fever and mild to moderate pain (e.g., teething, colds, immunisations). Consult a doctor if symptoms do not improve after 5 days.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/Content/pdf/Panado_Paediatric_Syrup_Alcohol_Free_Grape_Flavour.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL (PDF)</a>`
                 },
                 {
                     title: "2. Age & Dosage Guide",
@@ -368,47 +528,56 @@
                                    <option value="child2">6 to 12 years (10 mL - 20 mL)</option>
                                </select>
                                <div class="dose-result" id="doseResultText">Select age bracket to view approved dose</div>
-                           </div>`
+                           </div>
+                           <a class="pil-link-btn" href="https://www.adcock.com/Content/pdf/Panado_Paediatric_Syrup_Alcohol_Free_Grape_Flavour.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL (PDF)</a>`
                 },
                 {
                     title: "3. Interval & Safety Warnings",
                     speech: "⏱️ Repeat every 4 hours if needed. <strong>MAX 4 doses per 24 hours.</strong> Do NOT use continuously for more than 5 to 10 days.",
                     card: `<div class="info-card-title">3. Critical Safety Warnings</div>
-                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>⚠️ Paracetamol Overdose Warning:</strong> Contains paracetamol which can cause severe liver damage in high doses. Do not combine with other paracetamol-containing medicines.</p>`
+                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>⚠️ Paracetamol Overdose Warning:</strong> Contains paracetamol which can cause severe liver damage in high doses. Do not combine with other paracetamol-containing medicines.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/Content/pdf/Panado_Paediatric_Syrup_Alcohol_Free_Grape_Flavour.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL (PDF)</a>`
                 },
                 {
                     title: "4. Storage",
                     speech: "❄️ Store at or below 25°C protected from light. Keep bottle well closed and out of reach of children. Do not freeze.",
                     card: `<div class="info-card-title">4. Storage Instructions</div>
-                           <p style="font-size:12px; line-height:1.4;">Store in outer carton. Do not store in bathrooms. Return unused syrup to your pharmacist for safe disposal.</p>`
+                           <p style="font-size:12px; line-height:1.4;">Store in outer carton. Do not store in bathrooms. Return unused syrup to your pharmacist for safe disposal.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/Content/pdf/Panado_Paediatric_Syrup_Alcohol_Free_Grape_Flavour.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL (PDF)</a>`
+                },
+                {
+                    title: "🏥 Find a Doctor",
+                    isRecomed: true,
+                    speech: "🩺 <strong>Need a Doctor?</strong> If symptoms are severe or persist beyond 3-5 days, use our RecoMed integration to quickly find and book a healthcare practitioner near you.",
+                    card: recomedCardTemplate
                 }
             ],
 
-            // CHILD ZONE (FUN & SCIENCE VIDEOS)
             childFeatures: [
                 {
                     title: "🎥 How Medicine Works",
                     speech: "🌟 Hi there! Watch this fun video to see how tiny helper superheroes inside medicine fight off fever to make you feel better!",
                     card: `<div class="child-badge">⭐ Educational Video for Kids</div>
-                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">How does your body process medicine? [https://www.youtube.com/watch?v=uOcpsXMJcJk]</p>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">How does your body process medicine?</p>
                            <div class="video-container">
-                               <iframe src="https://www.youtube.com/embed/uOcpsXMJcJk" title="How Medicine Works" allowfullscreen></iframe>
+                               <iframe src="https://www.youtube-nocookie.com/embed/uOcpsXMJcJk?playsinline=1&rel=0" title="How Medicine Works" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen playsinline></iframe>
                            </div>`
                 },
                 {
-                    title: "🦠 Immune System Superheroes",
+                    title: "🦠 Immune Superheroes",
                     speech: "🦠 Ever wonder why we catch a cold? Watch how your immune system fights off sneaky germ monsters!",
                     card: `<div class="child-badge">🔬 Fun Science Video</div>
-                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Meet Your Immune System Superheroes! [https://www.youtube.com/watch?v=oFT10dip0NE]</p>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Meet Your Immune System Superheroes!</p>
                            <div class="video-container">
-                               <iframe src="https://www.youtube.com/embed/oFT10dip0NE" title="Meet Your Body's Superheroes" allowfullscreen></iframe>
+                               <iframe src="https://www.youtube-nocookie.com/embed/oFT10dip0NE?playsinline=1&rel=0" title="Meet Your Body's Superheroes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen playsinline></iframe>
                            </div>`
                 }
             ],
 
             qa: [
-                { key: ["fever", "temp"], answer: "🌡️ Panado treats fever (>38°C). Ensure your child drinks plenty of fluids and stays rested." },
-                { key: ["dose", "spoon"], answer: "⚖️ Dosing: 3–12 mos (2.5–5 mL), 1–5 yrs (5–10 mL), 6–12 yrs (10–20 mL). Max 4 doses in 24 hours." }
+                { key: ["fever", "temp"], answer: "🌡️ Panado treats fever (>38°C). Ensure your child drinks plenty of fluids. If high fever persists, use the 'Find a Doctor' tab to book via RecoMed." },
+                { key: ["dose", "spoon"], answer: "⚖️ Dosing: 3–12 mos (2.5–5 mL), 1–5 yrs (5–10 mL), 6–12 yrs (10–20 mL). Max 4 doses in 24 hours." },
+                { key: ["pil", "leaflet", "pdf", "document"], answer: "📄 You can open the official Patient Information Leaflet (PIL) directly using the button in the information card above!" }
             ]
         },
 
@@ -423,21 +592,30 @@
             caregiverFeatures: [
                 {
                     title: "1. Indications",
-                    speech: "👋 You scanned <strong>Allergex® 4 mg Tablets</strong>. Contains Chlorphenamine Maleate to treat allergic conditions such as hay fever, urticaria (hives), insect bites, and rhinitis.",
+                    speech: "👋 You scanned <strong>Allergex® 4 mg Tablets</strong>. Contains Chlorphenamine Maleate to treat allergic conditions such as hay fever, hives, insect bites, and rhinitis.",
                     card: `<div class="info-card-title">1. What is Allergex used for?</div>
-                           <p style="font-size:12px; line-height:1.4;">Relieves allergy symptoms including sneezing, runny nose, itchy skin rashes, and insect bites.</p>`
+                           <p style="font-size:12px; line-height:1.4;">Relieves allergy symptoms including sneezing, runny nose, itchy skin rashes, and insect bites.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/content/pdf/Allergex_Tablets_PI.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL / PI (PDF)</a>`
                 },
                 {
                     title: "2. Dosage Guidelines",
                     speech: "💊 <strong>Approved Dose:</strong><br>• Adults & Children 12+: 1 tablet (4 mg) every 4 to 6 hrs (Max 24 mg/day).<br>• Children 6–12 yrs: Half tablet (2 mg) every 4 to 6 hrs (Max 12 mg/day).",
                     card: `<div class="info-card-title">2. Age Restrictions & Dosing</div>
-                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>🚫 Age Limit:</strong> Use in children under 6 years of age is NOT recommended per SAHPRA PIL guidance.</p>`
+                           <p style="font-size:12px; line-height:1.4; color:#b91c1c;"><strong>🚫 Age Limit:</strong> Use in children under 6 years of age is NOT recommended per SAHPRA PIL guidance.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/content/pdf/Allergex_Tablets_PI.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL / PI (PDF)</a>`
                 },
                 {
                     title: "3. Drowsiness Warning",
                     speech: "😴 <strong>Drowsiness Alert:</strong> Allergex leads to drowsiness. Avoid driving or operating machinery. Avoid alcohol and sedatives as they worsen sleepiness.",
                     card: `<div class="info-card-title">3. Safety Precautions</div>
-                           <p style="font-size:12px; line-height:1.4;">Contains lactose (caution for lactose intolerance or diabetes). Do not take if you suffer from glaucoma or severe asthma attacks.</p>`
+                           <p style="font-size:12px; line-height:1.4;">Contains lactose. Do not take if you suffer from glaucoma or severe asthma attacks.</p>
+                           <a class="pil-link-btn" href="https://www.adcock.com/content/pdf/Allergex_Tablets_PI.pdf" target="_blank" rel="noopener">📄 View Official SAHPRA PIL / PI (PDF)</a>`
+                },
+                {
+                    title: "🏥 Find a Doctor",
+                    isRecomed: true,
+                    speech: "🩺 <strong>Severe Allergy or Breathing Difficulty?</strong> If experiencing swelling, breathing trouble, or severe reactions, seek immediate clinical care via RecoMed.",
+                    card: recomedCardTemplate
                 }
             ],
 
@@ -446,78 +624,23 @@
                     title: "🎥 Why Do We Sneeze?",
                     speech: "🌼 Ever wonder why pollen or dust makes you sneeze? Watch this cartoon video to see why your nose gets itchy!",
                     card: `<div class="child-badge">🌼 Cartoon Science for Kids</div>
-                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Why Do We Sneeze & Get Allergies? [https://www.youtube.com/watch?v=sM3FDsMAMdc]</p>
+                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Why Do We Sneeze & Get Allergies?</p>
                            <div class="video-container">
-                               <iframe src="https://www.youtube.com/embed/sM3FDsMAMdc" title="Why Do We Get Allergies" allowfullscreen></iframe>
+                               <iframe src="https://www.youtube-nocookie.com/embed/sM3FDsMAMdc?playsinline=1&rel=0" title="Why Do We Get Allergies" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen playsinline></iframe>
                            </div>`
                 }
             ],
 
             qa: [
                 { key: ["sleep", "drowsy"], answer: "😴 Yes, Allergex causes drowsiness. Do not drive or engage in hazardous activities." },
-                { key: ["under 6", "toddler"], answer: "🚫 Allergex tablets are not recommended for children under 6 years of age." }
-            ]
-        },
-
-        NEBRAFEN: {
-            brandName: "Adco Nebrafen Solution",
-            subtitle: "Adcock Ingram Critical Care - Inhalant",
-            themeColor: "#2563eb",
-            themeGradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-            capColor: "#3b82f6",
-            bandColor: "#1d4ed8",
-
-            caregiverFeatures: [
-                {
-                    title: "1. Overview & Use",
-                    speech: "💨 You scanned <strong>Adco Nebrafen Inhalant Solution</strong>. Contains Fenoterol Hydrobromide (1.25mg) & Ipratropium Bromide (0.5mg). Used via nebuliser to open airways in asthma or bronchitis.",
-                    card: `<div class="info-card-title">1. Nebuliser Inhalant Solution</div>
-                           <p style="font-size:12px; line-height:1.4;">For oral inhalation only via nebuliser/ventilator. Opens constricted bronchial airways during asthma attacks.</p>`
-                },
-                {
-                    title: "2. Administration Guide",
-                    speech: "🌬️ <strong>Ready to use:</strong> Each 4 mL polyethylene ampoule requires NO dilution. Squeeze complete contents into nebuliser reservoir immediately after opening.",
-                    card: `<div class="info-card-title">2. How to Administer</div>
-                           <p style="font-size:12px; line-height:1.4;">Use via mouthpiece (preferred) or well-fitting mask. <strong>⚠️ Protect eyes:</strong> Ensure mist does not enter the eyes as it may trigger glaucoma complications.</p>`
-                },
-                {
-                    title: "3. Dosage & Warnings",
-                    speech: "⚠️ <strong>Strict Guidance:</strong> Per PIL, this formulation is indicated for adults. Use under strict medical supervision.",
-                    card: `<div class="info-card-title">3. Safety Precautions</div>
-                           <p style="font-size:12px; line-height:1.4;">Contains no preservative; discard partly used ampoules. Possible side effects include hand tremors, fast heartbeat, or dry mouth.</p>`
-                }
-            ],
-
-            childFeatures: [
-                {
-                    title: "💨 Inhalers & Spacers",
-                    speech: "🌬️ Let's see how special breathing masks and inhalers blow clean, clear air right into your lungs so you can run fast!",
-                    card: `<div class="child-badge">💨 Superhero Breathing Video</div>
-                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">Daniel Learns About Asthma & Inhalers [https://www.youtube.com/watch?v=ZAGvkKWNt_c]</p>
-                           <div class="video-container">
-                               <iframe src="https://www.youtube.com/embed/ZAGvkKWNt_c" title="Daniel Learns About Asthma" allowfullscreen></iframe>
-                           </div>`
-                },
-                {
-                    title: "🫁 How Lungs Work",
-                    speech: "🫁 Watch how your lungs inflate like tiny pink balloons every time you take a big breath!",
-                    card: `<div class="child-badge">🎈 Human Body Science</div>
-                           <p style="font-size:12px; font-weight:600; margin-bottom:6px;">How Do Our Lungs Breathe? [https://www.youtube.com/watch?v=mOKmjYwfDGU]</p>
-                           <div class="video-container">
-                               <iframe src="https://www.youtube.com/embed/mOKmjYwfDGU" title="How Lungs Work" allowfullscreen></iframe>
-                           </div>`
-                }
-            ],
-
-            qa: [
-                { key: ["eye", "vision"], answer: "👁️ Keep nebuliser mist away from eyes to prevent pain or blurred vision." },
-                { key: ["dilute", "water"], answer: "💧 No! Adco Nebrafen is isotonic and ready for use—do not dilute with water." }
+                { key: ["under 6", "toddler"], answer: "🚫 Allergex tablets are not recommended for children under 6 years of age." },
+                { key: ["pil", "leaflet", "pdf", "document"], answer: "📄 You can open the official Patient Information Leaflet (PIL) directly using the button in the information card above!" }
             ]
         }
     };
 
     let activeProductKey = "PANADO";
-    let currentSegment = 'caregiver'; // 'caregiver' or 'child'
+    let currentSegment = 'caregiver'; 
     let activeFeatureIndex = 0;
 
     function initFromUrl() {
@@ -555,7 +678,6 @@
         document.getElementById('segCaregiver').classList.toggle('active', seg === 'caregiver');
         document.getElementById('segChild').classList.toggle('active', seg === 'child');
 
-        // Hide chat footer in child mode for clean UI
         document.getElementById('appFooter').style.display = seg === 'child' ? 'none' : 'flex';
 
         renderProductContext();
@@ -574,10 +696,9 @@
 
         const featureList = currentSegment === 'caregiver' ? product.caregiverFeatures : product.childFeatures;
 
-        // Render Nav Buttons
         const navContainer = document.getElementById('navigationTabs');
         navContainer.innerHTML = featureList.map((item, idx) => `
-            <button class="feature-nav-btn ${idx === activeFeatureIndex ? 'active' : ''}" onclick="selectFeature(${idx})">
+            <button class="feature-nav-btn ${item.isRecomed ? 'recomed-tab' : ''} ${idx === activeFeatureIndex ? 'active' : ''}" onclick="selectFeature(${idx})">
                 ${item.title}
             </button>
         `).join('');
@@ -630,6 +751,17 @@
         const product = productCatalogue[activeProductKey];
 
         if (!q) return;
+
+        // Severe triage triggers -> RecoMed Segue
+        const triageKeywords = ["doctor", "gp", "recomed", "severe", "clinic", "hospital", "sick", "breath", "worse", "days"];
+        const isTriageNeeded = triageKeywords.some(k => q.includes(k));
+
+        if (isTriageNeeded) {
+            document.getElementById('speechText').innerHTML = `🚨 <strong>Medical Attention Recommended:</strong> If symptoms are severe or persistent, please consult a medical professional immediately. You can book a GP or virtual consult via <strong>RecoMed</strong> below:`;
+            document.getElementById('infoCard').innerHTML = recomedCardTemplate;
+            input.value = '';
+            return;
+        }
 
         let found = product.qa.find(item => item.key.some(k => q.includes(k)));
         
